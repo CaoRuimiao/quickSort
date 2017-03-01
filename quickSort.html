@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>快速排序</title>
+</head>
+<body>
+    
+    <script>
+        var arr=[1,45,23,67,34,89,42];
+        var quickSort=function(arr){
+            if(arr.length<=1){return arr;}
+            var pviotIndex=Math.floor(arr.length/2);
+            var pviot=arr.splice(pviotIndex,1)[0];
+            var left=[];
+            var right=[];
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]<pviot){
+                    left.push(arr[i]);
+                }
+                if(arr[i]>pviot){
+                    right.push(arr[i]);
+                }
+            }
+            return quickSort(left).concat([pviot],quickSort(right));
+        }
+        document.write("原来的数组arr=" + arr + "<br> 快速排序后的数组arr1=" + quickSort(arr));
+    </script>
+</body>
+</html>
